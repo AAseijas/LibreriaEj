@@ -7,7 +7,7 @@ public class ChildrensBook extends Book {
     private int[] rangeAge = new int[2];
 
     //Cosntructor
-    public ChildrensBook(String classification, String name, int numberOfPages, BigDecimal price,int[] rangeAge){
+    public ChildrensBook(ClasificationBook classification, String name, int numberOfPages, BigDecimal price,int[] rangeAge){
         super(classification,name,numberOfPages,price);
         this.rangeAge=rangeAge;
     }
@@ -22,9 +22,11 @@ public class ChildrensBook extends Book {
         this.rangeAge = rangeAge;
     }
 
-//toString
+    //Metodos
+
+
     @Override
-    public String toString() {
-        return this.getClassification()+": "+this.getName()+", $"+this.getPrice()+" para menores entre "+this.getRangeAge(0)+" y "+this.getRangeAge(1);
+    public String show() {
+        return super.show()+" para menores entre "+this.getRangeAge(0)+" y "+this.getRangeAge(1);
     }
 }

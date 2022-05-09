@@ -2,19 +2,20 @@ package Model;
 
 import java.math.BigDecimal;
 
-public abstract class Book {
+public  class Book {
     //Atributos
     private String name;
     private int numberOfPages;
     private BigDecimal price;
+    private ClasificationBook classification;
 
-    private String classification;
     //Constructor
-    public Book(String classification,String name, int numberOfPages, BigDecimal price) {
-        this.classification=classification;
+
+    public Book(ClasificationBook classification,String name, int numberOfPages, BigDecimal price) {
         this.name = name;
         this.numberOfPages = numberOfPages;
         this.price = price;
+        this.classification = classification;
     }
 
     //Getters & Setters
@@ -43,16 +44,18 @@ public abstract class Book {
         this.price = price;
     }
 
-    public String getClassification() {
+    public ClasificationBook getClassification() {
         return classification;
     }
 
-    public void setClassification(String classification) {
+    public void setClassification(ClasificationBook classification) {
         this.classification = classification;
     }
 
-    //toString
-    @Override
-    abstract public String toString();
+
+
+     public String show(){
+         return this.getClassification()+": "+this.getName()+", $"+this.getPrice();
+     };
 
 }

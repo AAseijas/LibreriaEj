@@ -7,7 +7,6 @@ public class RegisterBook implements RegisterBookInterface {
 
     //Atributos
     private List<Book> booksList = new ArrayList<>();
-    //Creo esta lista para guardare los nombres de los libros, dado que la lista de bookLIst almacena objetos.
     private List<String> bookNamesList = new ArrayList<>();
 
 
@@ -47,11 +46,7 @@ public class RegisterBook implements RegisterBookInterface {
 
     @Override
     public boolean deleteByTitle(String bookToDelete) {
-        /**
-         * Como la lista bookList y bookNameList almacena en el mismo orden los libros. Obtengo de la lista de bookNameList el indice del libro
-         * a eliminar. Utilizo esta dado que la lista bookList almacena objeto y encontrar el indice es mucho mas dificil y costoso que en una lista de
-         * solamente nombres.
-         * **/
+
         int indexBook = bookNamesList.indexOf(bookToDelete);
 
         if (bookNamesList.contains(bookToDelete)) {
@@ -77,8 +72,8 @@ public class RegisterBook implements RegisterBookInterface {
 
     @Override
     public void showAll() {
-        for (int i = 0; i < booksList.size(); i++) {
-            System.out.println(booksList.get(i));
+        for(Book book:booksList){
+            System.out.println(book.show());
         }
     }
 }
